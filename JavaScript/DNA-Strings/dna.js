@@ -38,3 +38,22 @@ let dnaStrings2 = (str) => {
 	}
 	return strArr.join('');
 };
+
+let dnaStrings3 = (str) => {
+	let newArr;
+	let newString = '';
+	let strArr = str.split('');
+	let newStr = [];
+	let objArr = [
+		{ key: 'A', value: 'T' },
+		{ key: 'T', value: 'A' },
+		{ key: 'C', value: 'G' },
+		{ key: 'G', value: 'C' },
+	];
+	newArr = strArr.map((letter) => {
+		newStr.push(objArr.hasOwnProperty(letter).value);
+	});
+	return newStr;
+};
+
+console.log(dnaStrings('ATTGC'));
