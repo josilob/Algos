@@ -19,3 +19,34 @@ def pyramid_sum(base)
   end
   p final_arr
 end
+###############################################
+
+def pyramid_sum2 (base)
+  solution_array = []
+
+  temp_array = base
+
+  adding_array = []
+
+  solution_array<<base
+    loop do
+    temp_array.each_with_index do | num, index |
+
+      if index +1 < temp_array.length
+        sum = temp_array[index] + temp_array[index +1]
+        adding_array << sum
+      end
+    end
+    solution_array << adding_array
+    temp_array = adding_array
+    adding_array = []
+
+      if temp_array.length == 1
+        break
+      end
+  end
+return solution_array.reverse
+end
+
+pyramid_sum([1, 2, 3, 4])
+p pyramid_sum2([1, 2, 3, 4])
