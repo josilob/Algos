@@ -1,4 +1,4 @@
-# @param string
+  # @param string
   # @param string
   # @return boolean
 
@@ -32,3 +32,27 @@ def anagrams? (word1, word2)
   end
   return valid
 end
+#################################################
+def anagram?(word1, word2)
+  word1_arr = word1.split("")
+  word2_arr = word2.split("")
+  while word1_arr.length > 0
+    char = word1_arr[0]
+    if word2_arr.include?(char) == true
+      index1 = word1_arr.find_index(char)
+      index2 = word2_arr.find_index(char)
+      word1_arr.slice!(index1)
+      word2_arr.slice!(index2)
+    else
+      return false
+    end
+  end
+  return word1_arr.empty? && word2_arr.empty?
+end
+
+################################################
+
+puts anagrams?("cat", "act")          #=> true
+puts anagrams?("restful", "fluster")  #=> true
+puts anagrams?("cat", "dog")          #=> false
+puts anagrams?("boot", "bootcamp")    #=> false
