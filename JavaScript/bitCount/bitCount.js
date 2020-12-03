@@ -1,4 +1,4 @@
-var countBits = function (n) {
+const countBits = function (n) {
 	// make an array with the bit result
 	const base = n.toString(2).split('');
 
@@ -7,4 +7,15 @@ var countBits = function (n) {
 
 	return result;
 };
+
+const countBits2 = function (n) {
+	n = n.toString(2).replace(/0/g, '').split('');
+	let count = 0;
+	for (let i = 0; i < n.length; i++) {
+		count += parseInt(n[i]);
+	}
+	return count;
+};
+
 console.log(countBits(67));
+console.log(countBits2(67));
