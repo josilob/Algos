@@ -17,5 +17,10 @@ const countBits2 = function (n) {
 	return count;
 };
 
+var countBits3 = function (n) {
+	return n.toString(2).replace(/0/g, '').length;
+};
+
 console.log(countBits(67));
 console.log(countBits2(67));
+console.log(countBits3(67));
