@@ -12,10 +12,11 @@ word.replace(/[^\w]/g, '').toLowerCase(); ==> hithere (replaced everything non a
 function anagrams(stringA, stringB) {
 	const aCharMap = buildCharMap(stringA);
 	const bCharMap = buildCharMap(stringB);
-
+	//compare objects keys if they match
 	if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
 		return false;
 	}
+	//another way to check would be checking string lengths after running .replace() on each
 
 	for (let char in aCharMap) {
 		if (aCharMap[char] !== bCharMap[char]) {
@@ -24,10 +25,12 @@ function anagrams(stringA, stringB) {
 	}
 	return true;
 }
+// console.log(anagrams('applepine   ', 'pineapple')); //=>true
 
-console.log(anagrams('applepine   ', 'pineapple'));
-
+//////////////////////////////////////////////
 //HELPER FUNCTION THAT BUILDS MAP FROM STRINGS
+//////////////////////////////////////////////
+
 function buildCharMap(str) {
 	const charMap = {};
 	for (let char of str.replace(/[^\w]/g, '').toLowerCase()) {
@@ -45,3 +48,17 @@ const obj = {
 };
 Object.keys(obj).length; //utilize for comparison of two maps
 */
+
+//////////////////////////////////////////////
+/////////////////ANOTHER WAY//////////////////
+//////////////////////////////////////////////
+function anagrams2(stringA, stringB) {
+	return cleanString(stringA) === cleanString(stringB);
+}
+
+console.log(anagrams2('pineapple', 'applesandoranges'));
+console.log(anagrams2('pineapple', 'applepine'));
+
+function cleanString(str) {
+	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+}
