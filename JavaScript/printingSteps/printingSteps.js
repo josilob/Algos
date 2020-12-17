@@ -12,5 +12,18 @@ const steps = (n) => {
 		console.log(stair);
 	}
 };
+// steps(5);
 
-steps(5)
+const recursiveSteps = (n, i, stair = '') => {
+	if (n === i || n > i) return;
+
+	if (n === stair.length) {
+		console.log(stair);
+		return steps(n, i + 1);
+	}
+
+	stair.length <= i ? (stair += '#') : (stair += ' ');
+
+	steps(n, i, stair);
+};
+recursiveSteps(8);
