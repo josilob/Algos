@@ -12,4 +12,13 @@ function vowels(str) {
 	return counter;
 }
 
-console.log(vowels('Hello there'));
+// console.log(vowels('Hello there'));
+
+function vowels2(str) {
+	const matches = str.match(/[aeiou]/gi);
+	//g to apply regEx globally, i for case INSENSITIVE
+	return matches ? matches.length : 0;
+	
+}
+
+console.log(vowels2('how mAny mAtchIng vOwels?'));
