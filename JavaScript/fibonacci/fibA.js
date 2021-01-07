@@ -24,7 +24,8 @@ function fib2(n) {
 		// Otherwise keep REINVOKING the function until it boils down to PREVIOUS solution
 	} else return fib2(n - 1) + fib2(n - 2);
 }
-// console.log(fib2(5));
+// console.log(fib(41))
+// console.log(fib2(41));
 
 // solution is QUADRATIC, for each number we add, runtime dramatically increases
 
