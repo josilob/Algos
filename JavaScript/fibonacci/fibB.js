@@ -1,7 +1,7 @@
 // Memoization way:
 
 function memoize(fn) {
-	const cache = []; // record of previous results - caching
+	const cache = {}; // record of previous results - caching
 
 	//In the memoize function, we return a function that can take in any amount of arguments due to the use of rest parameter
 
