@@ -38,6 +38,29 @@ class LinkedList {
 
 		return counter;
 	}
+
+	// head is always the first node in the linked list
+	getFirst() {
+		return this.head;
+	}
+
+	// last node is the one that has no reference to the next one (null by default)
+	getLast() {
+		// if there's no node, get out of it
+		if (!this.head) {
+			return null;
+		}
+		// get a reference to the current node and iterate through the rest
+		// as long as there is next node, we will continue with iteration
+		// as soon as we find final node (with null property, meaning there is no next), we return it
+		let node = this.head;
+		while (node) {
+			if (!node.next) {
+				return node;
+			}
+			node = node.next;
+		}
+	}
 }
 
 const list = new LinkedList();
