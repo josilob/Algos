@@ -42,4 +42,4 @@ function spiralMatrix(num) {
 	}
 	return results;
 }
-console.log(spiralMatrix(5));
+console.log(spiralMatrix(9));
