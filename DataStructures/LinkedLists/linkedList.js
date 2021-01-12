@@ -1,8 +1,6 @@
 const nodeOne = { data: 123 };
 const nodeTwo = { data: 456 };
-
 // to link these two and make some reference between them, we must do following:
-
 nodeOne.next = nodeTwo; // this meets all the rules of linked lists
 // nodeOne has reference to nodeTwo, but nodeTwo has no reference to any other node, meaning it's probably the Tail.
 
@@ -61,7 +59,41 @@ class LinkedList {
 			node = node.next;
 		}
 	}
+
+	clear() {
+		// if there's no head, linked list is gone, we lose the reference to the linked list
+		// it may still float in memory, but there's no actual 'LINKED' list
+		this.head = null;
+	}
+
+	// removes first element of the linked list past the head leaving head pointing to the next node, past 'removed one'
+	// basically meaning, point head to the second element
+	removeFirst() {
+		if (!this.head) {
+			return;
+		}
+		this.head = this.head.next;
+	}
+
+	// remove tail
+	removeLast() {
+		if (!this.head) {
+			return;
+		}
+		if (!this.head.next) {
+			this.head = null;
+			return;
+		}
+		let previous = this.head;
+		let node = this.head.next;
+
+		while (node.next) {
+			previous = node;
+			node = node.next;
+		}
+		previous.next = null;
+	}
 }
 
-const list = new LinkedList();
-list.head = new Node(10);
+// const list = new LinkedList();
+// list.head = new Node(10);
