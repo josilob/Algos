@@ -39,25 +39,29 @@ class LinkedList {
 
 	// head is always the first node in the linked list
 	getFirst() {
-		return this.head;
+		// return this.head;
+		// ### REUSE OF CODE ###
+		return this.getAt(0);
 	}
 
 	// last node is the one that has no reference to the next one (null by default)
 	getLast() {
 		// if there's no node, get out of it
-		if (!this.head) {
-			return null;
-		}
+		// if (!this.head) {
+		// 	return null;
+		// }
 		// get a reference to the current node and iterate through the rest
 		// as long as there is next node, we will continue with iteration
 		// as soon as we find final node (with null property, meaning there is no next), we return it
-		let node = this.head;
-		while (node) {
-			if (!node.next) {
-				return node;
-			}
-			node = node.next;
-		}
+		// let node = this.head;
+		// while (node) {
+		// 	if (!node.next) {
+		// 		return node;
+		// 	}
+		// 	node = node.next;
+		// }
+		// ### REUSE OF CODE ###
+		return this.getAt(this.size() - 1);
 	}
 
 	clear() {
@@ -116,7 +120,35 @@ class LinkedList {
 		}
 		return null;
 	}
-}
 
-// const list = new LinkedList();
-// list.head = new Node(10);
+	removeAt(index) {
+		if (!this.head) {
+			return;
+		}
+
+		if (index === 0) {
+			this.head = this.head.next;
+			return;
+		}
+		const previous = this.getAt(index - 1);
+		if (!previous || !previous.next) {
+			return;
+		}
+		previous.next = previous.next.next; //skip one that needs to be removed basically
+		// being linked to 'nothing' removes it from linked list
+	}
+
+	insertAt(data, index) {
+		if (!this.head) {
+			this.head = new Node(data);
+			return;
+		}
+		if (index === 0) {
+			this.head = new Node(data, this.head);
+			return;
+		}
+		const previous = this.getAt(index - 1) || this.getLast();
+		const node = new Node(data, previous.next);
+		previous.next = node;
+	}
+}
