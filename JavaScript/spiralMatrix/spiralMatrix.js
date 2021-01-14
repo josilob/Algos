@@ -4,7 +4,6 @@ function spiralMatrix(num) {
 	for (let i = 0; i < num; i++) {
 		results.push([]);
 	}
-
 	let counter = 1;
 	let startCol = 0;
 	let endCol = num - 1;
@@ -42,4 +41,5 @@ function spiralMatrix(num) {
 	}
 	return results;
 }
-console.log(spiralMatrix(9));
+
+console.log(spiralMatrix(6));
