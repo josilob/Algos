@@ -6,9 +6,7 @@ let numberOfSteps = (num) => {
 	if (num <= 0) {
 		return counter;
 	}
-    }
-
-    //helper function to keep track of counter
+	//helper function to keep track of counter
 	const helper = (num, counter) => {
 		if (num === 0) {
 			return counter;
@@ -22,4 +20,5 @@ let numberOfSteps = (num) => {
 	};
 	return helper(num, counter);
 };
+
 console.log(numberOfSteps(14));
