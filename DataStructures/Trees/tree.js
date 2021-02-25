@@ -4,6 +4,21 @@
 //Create a tree class. Tree constructor should initialize a 'root' property to null.
 //Implement 'traverseBFS' and 'traverseDFS' on the tree class.
 
-class Node {}
+class Node {
+	constructor(data) {
+		this.data = data;
+		this.children = [];
+	}
+
+	add(data) {
+		this.children.push(new Node(data));
+	}
+
+	remove(data) {
+		this.children = this.children.filter((node) => {
+			return node.data !== data;
+		});
+	}
+}
 
 class Tree {}
