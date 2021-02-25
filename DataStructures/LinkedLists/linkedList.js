@@ -152,28 +152,3 @@ class LinkedList {
 		previous.next = node;
 	}
 }
-
-// const list = new List();
-// list.insertLast(1);
-// list.insertLast(2);
-// list.insertLast(3);
-// list.insertLast(4);
-
-// list.forEach((node, idx) => {
-// 	node.data += 10;
-// });
-// console.log(list.getAt(0));
-// returns node with data 11
-
-// const list = new List();
-// list.insertLast(1);
-// list.insertLast(2);
-// list.insertLast(3);
-// list.insertLast(4);
-
-// for (let node of list) {
-// 	node.data += 10;
-// }
-
-// node.getAt(1);
-// returns node with data 11

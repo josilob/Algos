@@ -11,7 +11,7 @@ function midpoint(list) {
 
 	while (fast.next && fast.next.next) {
 		slow = slow.next;
-		fast = fast.next.next;
+		fast = fast.next.next;  
 	}
 	return slow;
 }
