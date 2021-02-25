@@ -48,3 +48,32 @@ class Tree {
 		}
 	}
 }
+
+// Given the root node of a tree, return an array where each element is the width of the tree at each level.
+// example:
+
+//       0
+//     / | \
+//    1  2  3
+//    |     |
+//    4     5
+//
+// Answer:[1,3,2] => 1st level is 1 element, 2nd level are 3 elements, 3rd level are 2 elements
+
+function levelWidth(root) {
+	const arr = [root, 's'];
+	const counters = [0];
+
+	while (arr.length > 1) {
+		const node = arr.shift();
+
+		if (node === 's') {
+			counters.push(0);
+			arr.push('s');
+		} else {
+			arr.push(...node.children);
+			counters[counters.length - 1]++;
+		}
+	}
+	return counters;
+}
