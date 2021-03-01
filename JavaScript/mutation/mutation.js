@@ -14,4 +14,4 @@ function mutation(arr) {
 	return true;
 }
 
-console.log(mutation(['hello', 'hell']));
+console.log(mutation(['helo', 'hell']));
