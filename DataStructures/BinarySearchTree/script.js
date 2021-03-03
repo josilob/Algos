@@ -46,3 +46,35 @@ class Node {
 		return null;
 	}
 }
+
+//////// VALIDATE ///////
+
+// Given a node, validate the binary search tree, ensuring that every node's left hand child is less than the parent node's value, and that every node's right hand child is greater than the parent
+
+// LOOK @ VALIDATE IMG
+function validate(node, min = null, max = null) {
+	if (max !== null && node.data > max) {
+		return false;
+	}
+	if (min !== null && node.data < min) {
+		return false;
+	}
+	if (node.left && !validate(node.left, min, node.data)) {
+		return false;
+	}
+	if (node.right && !validate(node.right, node.data, max)) {
+		return false;
+	}
+	return true;
+}
+// we come to a node (10) without min or max set
+// because min/max are null, we skip first 2 statements
+// 1) is there a root node to the left (YES - with the value of zero);
+// So we check for validate with node of 0(left from parent's 10) min=null while max is node.data (10 currently)
+// Next iteration with max !== null (since it's 10 now), we check if our new node(0) is bigger than it
+// If that was true, we would return false as an aswer to this function (as it can't be the case in BST)
+// Same works if there is a node to the right
+// Once we get to the bottom of the tree without min or max values, first two conditions fail without further values so we return TRUE (from the bottom of the function)
+
+//Basically, if we are trying to move to the left, we update MAX value, and if we are going right, we update MIN
+//This way we progress through the tree and if any node ever returns false, our answer cascades back up and gives us the answer of false
