@@ -15,6 +15,7 @@ class Events {
 	}
 
 	// Trigger all callbacks associated with a given eventName
+	// Look at events object at eventName key and for every callback in that array, immediately call it
 	trigger(eventName) {
 		if (this.events[eventName]) {
 			for (let cb of this.events[eventName]) {
