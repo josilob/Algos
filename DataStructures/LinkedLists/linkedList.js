@@ -54,7 +54,7 @@ class LinkedList {
 		// as long as there is next node, we will continue with iteration
 		// as soon as we find final node (with null property, meaning there is no next), we return it
 		// let node = this.head;
-		let node = this.head
+		let node = this.head;
 		while (node) {
 			if (!node.next) {
 				return node;
@@ -162,4 +162,19 @@ class LinkedList {
 		const node = new Node(data, previous.next);
 		previous.next = node;
 	}
+}
+
+function circular(list) {
+	let slow = list.getFirst();
+	let fast = list.getFirst();
+
+	while (fast.next && fast.next.next) {
+		slow = slow.next;
+		fast = fast.next.next;
+
+		if (slow === fast) {
+			return true;
+		}
+	}
+	return false;
 }
