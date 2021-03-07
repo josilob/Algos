@@ -1,4 +1,5 @@
-// Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits. Your solution must have following complexities: O(n)
+// Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
+// Your solution must have following complexities: O(n)
 
 //Example:
 // sameFrequency(182,281) => true
@@ -28,5 +29,5 @@ function sameFrequency(num1, num2) {
 	return true;
 }
 
-// console.log(sameFrequency(3589578, 58798352));
-// console.log(sameFrequency(3589578, 5879835));
+console.log(sameFrequency(3589578, 58798352));
+console.log(sameFrequency(3589578, 5879835));
