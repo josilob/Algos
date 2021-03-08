@@ -9,6 +9,8 @@ function addUpTo(n) {
 }
 
 let t1 = performance.now();
-addUpTo(20);
+// addUpTo(20);
+// addUpTo(200000);
+addUpTo(200000000);
 let t2 = performance.now();
 console.log(`Time to execute the function is : ${(t2 - t1) / 1000} seconds`);
