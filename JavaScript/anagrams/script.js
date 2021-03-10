@@ -9,7 +9,32 @@ const word = 'HI THERE!!!!!';
 word.replace(/[^\w]/g, '').toLowerCase(); ==> hithere (replaced everything non alphanumeric with empty string '')
 */
 
-function anagrams(stringA, stringB) {
+function anagrams(str1, str2) {
+	if (str1.length !== str2.length) return false;
+	let lookup = {};
+
+	for (let i = 0; i < str1.length; i++) {
+		let letter = str1[i];
+		// if letter already exists in object, increment it, otherwise set to 1
+		lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+	}
+
+	for (let i = 0; i < str2.length; i++) {
+		let letter = str2[i];
+		// if letter doesnt exist or it is zero, it's not an anagram
+		if (!lookup[letter]) {
+			return false;
+		} else {
+			lookup[letter] = -1;
+		}
+	}
+	return true;
+}
+console.log(anagrams('applepine', 'pineapple')); //=>true
+console.log(anagrams('applepine', 'applesandoranges')); //=>true
+console.log(anagrams('applepineee', 'pineapple')); //=>true
+
+function anagrams2(stringA, stringB) {
 	const aCharMap = buildCharMap(stringA);
 	const bCharMap = buildCharMap(stringB);
 	//compare objects keys if they match
@@ -52,12 +77,12 @@ Object.keys(obj).length; //utilize for comparison of two maps
 //////////////////////////////////////////////
 /////////////////ANOTHER WAY//////////////////
 //////////////////////////////////////////////
-function anagrams2(stringA, stringB) {
+function anagrams3(stringA, stringB) {
 	return cleanString(stringA) === cleanString(stringB);
 }
 
-console.log(anagrams2('pineapple', 'applesandoranges'));
-console.log(anagrams2('pineapple', 'applepine'));
+// console.log(anagrams2('pineapple', 'applesandoranges'));
+// console.log(anagrams2('pineapple', 'applepine'));
 
 function cleanString(str) {
 	return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
