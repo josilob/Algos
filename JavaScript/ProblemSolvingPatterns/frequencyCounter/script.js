@@ -4,8 +4,10 @@ function sameFrequency(arr1, arr2) {
 	if (arr1.length !== arr2.length) {
 		return false;
 	}
+	// first iteration - for loop
 	for (let i = 0; i < arr1.length; i++) {
-		let correctIndex = arr2.indexOf(arr1[i] ** 2); // 2nd iteration over elements (indexOf has O(n) time complexity)
+		// 2nd iteration over elements (indexOf has O(n) time complexity)
+		let correctIndex = arr2.indexOf(arr1[i] ** 2);
 		if (correctIndex === -1) {
 			return false;
 		}
