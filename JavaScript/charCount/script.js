@@ -1,5 +1,4 @@
 // Write a function that takes in a string and returns alphanumeric character count!
-
 function charCount(str) {
 	let obj = {};
 	for (let char of str) {
@@ -10,9 +9,8 @@ function charCount(str) {
 	}
 	return obj;
 }
-// console.log(charCount('is ThIs$# Thing WorkING'));
+// console.log(charCount('is ThIs$# WorkING'));
 //////////////////////////////////////////////////
-
 function isAlphaNumberic(char) {
 	let code = char.charCodeAt(0);
 	if (
@@ -24,7 +22,6 @@ function isAlphaNumberic(char) {
 	}
 	return true;
 }
-
 function charCount2(str) {
 	let obj = {};
 	for (let char of str) {
@@ -35,4 +32,4 @@ function charCount2(str) {
 	}
 	return obj;
 }
-console.log(charCount2('is ThIs$# Thing WorkING'));
+console.log(charCount2('is ThIs$# WorkING'));

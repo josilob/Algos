@@ -1,0 +1,1 @@
+// Write a function called sameFrequency that takes in two arrays and returns true if every value in the array one has it's corresponding value squared in the second array. The frequency of values must be the same.
