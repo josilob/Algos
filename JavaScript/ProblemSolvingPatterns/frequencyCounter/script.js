@@ -43,4 +43,30 @@ function sameFrequency2(arr1, arr2) {
 	}
 	return true;
 }
-console.log(sameFrequency2([1, 2, 3, 3, 2, 6], [1, 4, 36, 9, 9, 4]));
+// console.log(sameFrequency2([1, 2, 3, 3, 2, 6], [1, 4, 36, 9, 9, 4]));
+
+// Write another function called sameFrequency with two positive integers.
+// Find out if the two numbers have the same frequency of digits
+// Solution must have complexity of: O(N)
+function sameFrequency3(num1, num2) {
+	if (!num1 || !num2) return false;
+	if (num1 < 1 || num2 < 1) return false;
+	let num1Hash = {};
+	let num2Hash = {};
+
+	for (let val of num1.toString()) {
+		num1Hash[val] = (num1Hash[val] || 0) + 1;
+	}
+	for (let val of num2.toString()) {
+		num2Hash[val] = (num2Hash[val] || 0) + 1;
+	}
+
+	for (let key in num1Hash) {
+		// if the same key doesn't exist in other hash map, return false
+		if (!(key in num2Hash)) return false;
+		// if the values of those keys are not the same, return false
+		if (num1Hash[key] !== num2Hash[key]) return false;
+	}
+	return true;
+}
+// console.log(sameFrequency3(1614, 4161));
