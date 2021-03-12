@@ -49,6 +49,7 @@ function sameFrequency2(arr1, arr2) {
 // Find out if the two numbers have the same frequency of digits
 // Solution must have complexity of: O(N)
 function sameFrequency3(num1, num2) {
+	if (num1.toString().length !== num2.toString().length) return false;
 	if (!num1 || !num2) return false;
 	if (num1 < 1 || num2 < 1) return false;
 	let num1Hash = {};
@@ -70,3 +71,20 @@ function sameFrequency3(num1, num2) {
 	return true;
 }
 // console.log(sameFrequency3(1614, 4161));
+
+// Implement a function called, areThereDuplicates which accepts a VARIABLE NUMBER of ARGUMENTS, and checks whether there are any duplicates among the arguments passed in.
+// Use the frequency counter pattern this time.
+// Time AND space are O(N)
+
+function areThereDuplicates() {
+	let collection = {};
+	for (let val of arguments) {
+		collection[arguments[val]] = (collection[arguments[val]] || 0) + 1;
+	}
+	for (let key in collection) {
+		if (collection[key] > 1) return true;
+	}
+	return false;
+}
+
+// console.log(areThereDuplicates(1, 2, 3, 4, 4, 5, 6));
