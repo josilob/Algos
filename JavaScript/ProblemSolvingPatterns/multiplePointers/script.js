@@ -50,4 +50,10 @@ function areThereDuplicates(...args) {
 	}
 	return false;
 }
-console.log(areThereDuplicates(1, 2, 3, 4, 5, 6, 6));
+
+// ONE-LINER
+
+function areThereDuplicates2() {
+	return new Set(arguments).size !== arguments.length;
+}
+console.log(areThereDuplicates2(1, 2, 3, 4, 5, 6));
