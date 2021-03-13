@@ -55,3 +55,27 @@ const binarySearch = (arr, val) => {
 
 // Worst case: O(logN)
 // Best case: O(1)
+
+// -------------
+// STRING SEARCH
+// -------------
+//
+// loop over the longer string
+// loop over the shorter string
+// if the characters do not match, break out of the inner loop
+// if the characters do match, keep going
+// if the inner loop is completed and match is found, increment the count of matches
+// return the count
+
+function stringSearch(long, short) {
+	let count = 0;
+	for (let i = 0; i < long.length; i++) {
+		for (let j = 0; j < short.length; j++) {
+			if (short[j] !== long[i + j]) break;
+			if (j === short.length - 1) count++;
+		}
+	}
+	return count;
+}
+
+// console.log(stringSearch('tralallaalal', 'lal')); //2 matches
