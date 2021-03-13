@@ -38,7 +38,7 @@ function factorial(num) {
 */
 
 // Design pattern used with recursion : HELPER METHOD RECURSION
-// Outside function (non recursive) with helper (inside), recursive function
+// Outside (non recursive) function with (inside, recursive) helper function
 
 function outer(input) {
 	let outerScopedVariable = [];
@@ -53,7 +53,6 @@ function outer(input) {
 }
 
 // Example: Collect all of the odd values in an array!
-
 function collectOddValues(arr) {
 	// define result outside of helper function so we can keep its values
 	// if we kept re-running function with this line, array would always start empty
@@ -63,7 +62,6 @@ function collectOddValues(arr) {
 		if (helperInput.length === 0) {
 			return;
 		}
-
 		if (helperInput[0] % 2 !== 0) {
 			result.push(helperInput[0]);
 		}
