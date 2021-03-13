@@ -1,0 +1,1 @@
+// Write a function called isSubsequence that takes in two strings and checks whether the characters in the first string form a subsequence of the characters in the second string. In other words, the function should check if characters from the first string appear anywhere in the second string, WITHOUT THEIR ORDER CHANGING.
