@@ -22,3 +22,6 @@ class Stack {
 		return this.data[this.data.length - 1];
 	}
 }
+
+// Stack algo: valid brackets
+// 
