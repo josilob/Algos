@@ -1,29 +1,34 @@
-// JavaScript comes with implemented array.sort method by default
-// Sort method accepts optional COMPARATOR function which tells JavaScript how we want elements sorted
-// Comparator looks at pair of numbers (a and b) and determines their sort order based on the return value
-// -If it returns a negative number, A should come before B
-// -Positive number means B before A
-// -If it returns 0, A and B are the same as far the comparator is concerned.
+// BUBBLE SORT
+// As we loop through items in array, we compare them to the next one in line and swap their places if needed, or keep them as is if they match the pattern
 
-let numbers = [6, 4, 15, 10];
-
-function numbersCompare(num1, num2) {
-	return num1 - num2;
-}
-function compareNumbers(num1, num2) {
-	return num2 - num1;
+// Many sorting algorithms make some type of swapping functionality(eg. swap the numbers to put them in order)
+// ES5 Way:
+function swap(arr, idx1, idx2) {
+	let temp = arr[idx1];
+	arr[idx1] = arr[idx2];
+	arr[idx2] = temp;
 }
 
-// console.log(numbers.sort(numbersCompare)); // [4,6,10,15]
-// console.log(numbers.sort(compareNumbers)); // [15,10,6,4]
-// console.log(numbers.sort((num1, num2) => num1 - num2)); // [4,6,10,15]  ES6 syntax with arrow function
-// console.log(numbers.sort((num1, num2) => num2 - num1)); // [15,10,6,4]
+//ES2016 Way, single line
+const swapES5 = (arr, idx1, idx2) => {
+	[arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+};
 
-let myStrings = [
-	'Bojan Josilo',
-	'Algorithm Practice',
-	'Short',
-	'And how are you?',
-];
+// BUBBLE SORT PSEUDOCODE:
+// - Start looping with a variable called i from the end of the array towards the beginning
+// - Start an inner loop with a variable called j from the beginning until i-1
+// - If arr[j] is greater than arr[j-1], swap those two values!
+// - Return the sorted array
 
-console.log(myStrings.sort((str1, str2) => str1.length - str2.length)); // Shortest to longest
+function bubbleSort(arr) {
+	for (let i = arr.length; i > 0; i--) {
+		for (let j = 0; j < i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // swap their values
+			}
+		}
+	}
+	return arr;
+}
+
+// console.log(bubbleSort([36, 45, 29, 8]));
