@@ -34,3 +34,18 @@ function merge(arr1, arr2) {
 	}
 	return results;
 }
+
+// shorter syntax:
+function merge2(arr1, arr2) {
+	let i = 0, j = 0, results = [];
+	while (i < arr1.length && j < arr2.length) {
+		arr1[i] < arr2[j]
+			? (results.push(arr1[i]), ++i)
+			: (results.push(arr2[j]), ++j);
+	}
+	i === arr1.length && j < arr2.length
+		? results.push(...arr2.slice(j))
+		: results.push(...arr1.slice(i));
+	return results;
+}
+
