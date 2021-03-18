@@ -22,4 +22,15 @@ function iqTest(numbers) {
 	return 0;
 }
 
-console.log(iqTest('1 3 5 7 7 9 11 6')); // => 8th(last) element of string
+// console.log(iqTest('1 3 5 7 7 9 11 6')); // => 8th(last) element of string
+
+function iqTest2(numbers) {
+	var nums = numbers.split(' ').map((x) => x % 2); // divide each num by 2
+	var sum = nums.reduce((a, b) => a + b); //
+	var target = sum > 1 ? 0 : 1;
+
+	return nums.indexOf(target) + 1;
+}
+// console.log(iqTest2('1 3 5 7 7 9 11 6'));
+
+
