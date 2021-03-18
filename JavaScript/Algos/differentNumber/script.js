@@ -33,4 +33,13 @@ function iqTest2(numbers) {
 }
 // console.log(iqTest2('1 3 5 7 7 9 11 6'));
 
+const iqTest3 = (test) => {
+	const numbers = test.split(' ');
+	const evens = numbers.filter((el) => el % 2);
+	const odds = numbers.filter((el) => !(el % 2));
+	const differ = evens.length == 1 ? evens[0] : odds[0];
 
+	return numbers.indexOf(differ) + 1;
+};
+
+// console.log(iqTest3('1 3 5 7 7 9 11 6'));
