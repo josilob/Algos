@@ -68,8 +68,8 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 // BigO of QuickSort
 
 // Time Complexity:
-//    -Best Case: O(NlogN)
+//    -Best Case: O(NlogN) - if the pivot is the middle element
 //    -Average: O(NlogN)
-//    -Worst: O(n^2)
+//    -Worst: O(n^2) - if the pivot is the first element in sorted array
 
 // Space Complexity: O(logN)
