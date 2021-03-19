@@ -14,3 +14,10 @@ function pigIt(str) {
 		})
 		.join(' ');
 }
+
+function pigIt2(str) {
+	// \w - 'any word character' (alphanumeric - letters, numbers, regardless of case, plus underscore '_')
+	return str.replace(/\w+/g, (w) => {
+		return w.slice(1) + w[0] + 'ay';
+	});
+}
