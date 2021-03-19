@@ -35,3 +35,34 @@ function mostDigits(nums) {
 	}
 	return maxDigits;
 }
+
+// PSEUDOCODE:
+// Define a function that accepts list of numbers
+// Figure out how many digits the largest number has
+// Loop from k=0 up to this largest number of digits
+// For each iteration of the loop:
+//  -Create buckets for each digit(0-9)
+//  -Place each number in the corresponding bucket based on its k-th digit
+// Replace our existing array with values in our buckets, starting with 0 and going up to 9
+// Return list at the end.
+
+function radixSort(nums) {
+	let maxDigitsCount = mostDigits(nums);
+	for (let k = 0; k < maxDigitsCount; k++) {
+		// create 10 emtpty arrays (buckets)
+		let digitBuckets = Array.from({ length: 10 }, () => []);
+		for (let i = 0; i < nums.length; i++) {
+			let digit = getDigit(nums[i], k);
+			digitBuckets[digit].push(nums[i]);
+		}
+		// console.log(digitBuckets);
+		nums = [].concat(...digitBuckets);
+	}
+	return nums;
+}
+
+console.log(radixSort([23, 345, 5467, 2345, 9852]));
+
+// Radix Sort BigO (n-length of array, k-number of digits(average))
+// Time Complexity: best, average and worst => O(nk)
+// Space Complexity: O(n+k)
