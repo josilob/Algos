@@ -8,3 +8,28 @@
 // foo9 -> foo10
 // foo099 -> foo100
 // Attention: If the number has leading zeros the amount of digits should be considered.
+
+function incrementString(string) {
+	if (isNaN(string.slice(-1))) {
+		return `${string}1`;
+	} else {
+		let chars = string
+			.split('')
+			.filter((n) => isNaN(n))
+			.join('');
+		let nums = string
+			.split('')
+			.filter((n) => !isNaN(n))
+			.join('');
+		let incrementedNum = +nums + 1;
+		if (nums.length > incrementedNum.toString().length) {
+			let zeros = '';
+			for (let i = 0; i < nums.length; i++) {
+				zeros += '0';
+			}
+			return chars + (zeros + incrementedNum).slice(-nums.length);
+		} else {
+			return chars + incrementedNum;
+		}
+	}
+}
