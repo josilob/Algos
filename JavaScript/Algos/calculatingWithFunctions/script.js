@@ -29,29 +29,15 @@ let seven = num(7);
 let eight = num(8);
 let nine = num(9);
 
-function plus(r) {
-	return function (l) {
-		return l + r;
-	};
-}
-function minus(r) {
-	return function (l) {
-		return l - r;
-	};
-}
-function times(r) {
-	return function (l) {
-		return l * r;
-	};
-}
-function dividedBy(r) {
-	return function (l) {
-		return Math.floor(l / r);
-	};
-}
+function plus(r) { return function (l) { return l + r; }; }
+function minus(r) { return function (l) { return l - r; }; }
+function times(r) { return function (l) { return l * r; }; }
+function dividedBy(r) { return function (l) { return Math.floor(l / r); }; }
 
-console.log(five(times(six())));
-console.log(nine(dividedBy(four())));
+console.log(five(times(six()))); //=> 30
+console.log(nine(dividedBy(four()))); //=> 2
+console.log(seven(plus(eight()))); //=> 15
+console.log(four(minus(one()))); //=> 3
 
 // ANOTHER SOLUTION
 
@@ -112,7 +98,9 @@ console.log(nine(dividedBy(four())));
 // 	};
 // }
 
+/////////////////////////////////////
 // For later : analyze this solution:
+/////////////////////////////////////
 
 // [ 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', ]
 // .forEach(function (name, n) { this[name] = function (f) { return f ? f(n) : n; }; });
