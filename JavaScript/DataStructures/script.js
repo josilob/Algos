@@ -70,6 +70,7 @@ secondStudent.addScore(81);
 // console.log(secondStudent.calculateAverage()); // => 87.5
 
 // Keyword 'static' is used for writing a statuc, class methods instead of instance methods
-// These methods are called without instantiating their class and cannot be called through a class instance. They are commonly used to create utility functions for an application.
+// These methods are called without instantiating their class and cannot be called through a class instance.
+// They are commonly used to create utility functions for an application.
 // Invocation:
 Student.contactStudents();
