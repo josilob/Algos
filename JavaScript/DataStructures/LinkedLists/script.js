@@ -151,6 +151,52 @@ class SinglyLinkedList {
 		this.length++;
 		return true;
 	}
+
+	// Remove - removes a node from the Linked List at a specific position
+	// -if the idx is less than zero or greater than the length, return undefined
+	// -if the idx is the same as the length-1, use pop()
+	// -if the idx is 0, use shift()
+	// -Otherwise, using the get() method, accessing the node at the idx-1
+	// -Set the next property as on that node to be the next of the next node
+	// -Decrement the length and return the value of the node removed
+	remove(idx) {
+		if (idx < 0 || idx > this.length) return undefined;
+		if (idx === 0) return this.shift();
+		if (idx === this.length - 1) return this.pop();
+		let previousNode = this.get(idx - 1);
+		let removed = previousNode.next;
+		previousNode.next = removed.next;
+		this.length--;
+		return removed;
+	}
+
+	// Reverse - Reverse the SLL in place! - no creation of duplicates/copies
+	// -swap the head and tail
+	// -create variables called next and previous
+	// -create a variable called node and initialize it to the head property
+	// -loop through the list while keeping references to the previous and next nodes:
+	//    -set next to be the next property on current node
+	//    -set the next property on the node to be whatever previous is
+	//    -set previous to be the value of the node variable
+	//    -set the node variable to be the value of the next variable
+	reverse() {
+		let node = this.head;
+		this.head = this.tail;
+		this.tail = node;
+		let next;
+		let previous = null;
+		for (let i = 0; i < this.length; i++) {
+			next = node.next;
+			node.next = previous;
+			previous = node;
+			node = next;
+		}
+		return this;
+	}
 }
 
-let myList = new SinglyLinkedList();
+// BIG-O Complexity of SLL
+// Insertion - O(1)
+// Removal - either O(1) or O(N)
+// Searching - O(N)
+// Access - O(N)
