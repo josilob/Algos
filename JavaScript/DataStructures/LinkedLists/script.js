@@ -34,4 +34,53 @@ class SinglyLinkedList {
 		this.length++;
 		return this;
 	}
+
+	// traverse() {
+	// 	let current = this.head;
+	// 	while (current) {
+	// 		console.log(current.val);
+	// 		current = current.next;
+	// 	}
+	// }
+
+	// Removing a node from the end of SLL
+	// -if there are no nodes in the list, return undefined
+	// -loop through until tail is reached, set the next property of the 2nd to last node to be null
+	// -set the tail to be the 2nd to last node, decrement the length of list by 1
+	// -return the value of the node it is removed
+
+	pop() {
+		if (!this.head) return undefined;
+		let current = this.head;
+		let newTail = current;
+		while (current.next) {
+			newTail = current;
+			current = current.next;
+		}
+		this.tail = newTail;
+		this.tail.next = null;
+		this.length--;
+		if (this.length === 0) {
+			this.head = null;
+			this.tail = null;
+		}
+		return current;
+	}
+
+	// Removing a node from the beginning of SLL
+	// -if there are no nodes, return undefined
+	// -store the current head property in a variable
+	// -set the head property to be current head's next property
+	// -decrement the length by 1
+	// -return the value of the node removed
+	shift() {
+		if (!his.head) return undefined;
+		let currentHead = this.head;
+		this.head = currentHead.next;
+		this.length--;
+		if (this.length === 0) {
+			this.tail = null;
+		}
+		return currentHead;
+	}
 }
