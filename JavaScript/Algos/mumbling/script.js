@@ -18,8 +18,13 @@ function accum(s) {
 		}
 		result.push(str);
 	}
-
 	return result.join('-');
 }
+// console.log(accum('stringText'));
 
-console.log(accum('dwarf'));
+function accum2(s) {
+	return [...s]
+		.map((char, index) => char.toUpperCase() + char.toLowerCase().repeat(index))
+		.join('-');
+}
+// console.log(accum2('accumulate'));
