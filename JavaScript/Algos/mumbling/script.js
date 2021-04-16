@@ -28,3 +28,10 @@ function accum2(s) {
 		.join('-');
 }
 // console.log(accum2('accumulate'));
+
+function accum3(s) {
+	return [...s.toUpperCase()].reduce(
+		(acc, cur, index) => acc + '-' + cur + cur.toLowerCase().repeat(index)
+	);
+}
+// console.log(accum3('reduce'));
