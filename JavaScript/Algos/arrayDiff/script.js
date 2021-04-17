@@ -9,3 +9,6 @@
 
 const arrayDiff = (a, b) => a.filter((x) => b.indexOf(x) === -1);
 // console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
+
+const arrayDiff2 = (a, b) => a.filter((e) => !b.includes(e));
+console.log(arrayDiff2([1, 2, 2, 2, 3], [2]));
