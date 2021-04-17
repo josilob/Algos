@@ -6,3 +6,6 @@
 // If a value is present in b, all of its occurrences must be removed from the other:
 
 // arrayDiff([1,2,2,2,3],[2]) == [1,3]
+
+const arrayDiff = (a, b) => a.filter((x) => b.indexOf(x) === -1);
+// console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
