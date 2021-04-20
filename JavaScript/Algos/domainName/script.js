@@ -4,8 +4,17 @@
 // domainName("http://www.zombie-bites.com") == "zombie-bites"
 // domainName("https://www.cnet.com") == "cnet"
 
-
 function domainName(url) {
+	let sourceString = url
+		.replace('http://', '')
+		.replace('https://', '')
+		.replace('www.', '')
+		.split(/[/?#]/)[0];
+	let domain = sourceString.split('.')[0];
+	return domain;
+}
+
+function domainName2(url) {
 	let patt = /(\/{2}|\.)/g;
 	let result = url.match(patt);
 	let sliced = '';
@@ -24,14 +33,4 @@ function domainName(url) {
 		sliced = url.slice(url.indexOf(result[0]) + 1, url.lastIndexOf(result[1]));
 	}
 	return sliced;
-}
-
-function domainName2(url) {
-	let sourceString = url
-		.replace('http://', '')
-		.replace('https://', '')
-		.replace('www.', '')
-		.split(/[/?#]/)[0];
-	let domain = sourceString.split('.')[0];
-	return domain;
 }
