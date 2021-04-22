@@ -27,3 +27,7 @@ const moveZeros2 = function (arr) {
 			})
 		);
 };
+
+const moveZeros3 = function (arr) {
+	return [...arr.filter((n) => n !== 0), ...arr.filter((n) => n === 0)];
+};
