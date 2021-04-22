@@ -15,3 +15,15 @@ const moveZeros = function (arr) {
 	}
 	return arr;
 };
+
+const moveZeros2 = function (arr) {
+	return arr
+		.filter(function (x) {
+			return x !== 0;
+		})
+		.concat(
+			arr.filter(function (x) {
+				return x === 0;
+			})
+		);
+};
