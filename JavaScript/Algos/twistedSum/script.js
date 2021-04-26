@@ -19,3 +19,18 @@ function twistedSum(n) {
 	}
 	return sum;
 }
+
+/// w/ Helper fn
+
+function twistedSum2(n) {
+	return n < 2 ? n : digits(n) + twistedSum2(n - 1);
+}
+function digits(n) {
+	let sum = 0;
+	while (n > 9) {
+		sum += n % 10;
+		n = Math.floor(n / 10);
+	}
+	return sum + n;
+}
+
