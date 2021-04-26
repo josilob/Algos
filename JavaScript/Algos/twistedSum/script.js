@@ -34,3 +34,16 @@ function digits(n) {
 	return sum + n;
 }
 
+///// 3rd
+
+function twistedSum(n, sum = 0) {
+	for (let i = 1; i <= n; i++)
+		sum +=
+			i < 10
+				? i
+				: i
+						.toString()
+						.split('')
+						.reduce((a, b) => parseInt(a) + parseInt(b));
+	return sum;
+}
