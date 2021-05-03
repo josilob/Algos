@@ -7,8 +7,20 @@
 // No whitespaces / underscore
 
 function alphanumeric(string) {
+	// ^ meaning NOT, as ! in JS syntax (return true if there are matches that are NOT regex)
 	return string.match(/^[a-z0-9]+$/i) !== null;
 }
 
 // one-liner
 let alphanumeric2 = (s) => /^[a-z\d]+$/i.test(s);
+
+// hardcoding
+const alphanumeric3 = (str) => {
+	if (!str.length) return false;
+	const ALLOWED_CHARS =
+		'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	for (let char of str) {
+		if (!ALLOWED_CHARS.includes(char)) return false;
+	}
+	return true;
+};
