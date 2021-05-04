@@ -20,3 +20,15 @@
 // addTwo(3); // 5
 // addTwo(3)(5); // 10
 // We can assume any number being passed in will be valid whole number.
+
+function add(n) {
+	let fn = function (x) {
+		return add(n + x);
+	};
+
+	fn.valueOf = function () {
+		return n;
+	};
+
+	return fn;
+}
