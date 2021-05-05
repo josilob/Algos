@@ -12,3 +12,24 @@ function perimeter(n) {
 	}
 	return 4 * arr.reduce((sum, num) => sum + num, 0);
 }
+
+function perimeter(n) {
+	var total = 0;
+	var first = 1;
+	var second = 1;
+	var third;
+	for (let i = 0; i < n + 1; i++) {
+		third = first + second;
+		total += first;
+
+		console.log('first=', first);
+		console.log('second=', second);
+		console.log('third=', third);
+		console.log('total=', total);
+		console.log('------------');
+
+		first = second;
+		second = third;
+	}
+	return total * 4;
+}
