@@ -11,3 +11,7 @@
 // time = 6.7---> litres = 3
 
 // time = 11.8--> litres = 5
+
+function litres(time) {
+	return Math.floor(time * 0.5);
+}
