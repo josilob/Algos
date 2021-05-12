@@ -5,3 +5,11 @@
 // case	return
 // name equals owner	'Hello boss'
 // Otherwise	'Hello guest'
+
+function greet(name, owner) {
+	return name === owner ? 'Hello boss' : 'Hello guest';
+}
+
+function greet2(name, owner) {
+	return `Hello ${name == owner ? 'boss' : 'guest'}`;
+}
