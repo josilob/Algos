@@ -23,8 +23,8 @@ function solve(arr) {
 	return solutionArr;
 }
 
-console.log(solve(['abode', 'ABc', 'xyzD'])); //[ 4, 3, 1 ]
-console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])); //[ 6, 5, 7 ]
+// console.log(solve(['abode', 'ABc', 'xyzD'])); //[ 4, 3, 1 ]
+// console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])); //[ 6, 5, 7 ]
 
 // loop through all the words in the array
 // pick a word, loop through its letters
@@ -32,3 +32,21 @@ console.log(solve(['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc'])); //[ 6, 5, 7 ]
 // if it matches, increment the counter for that word
 // at the end of the word, push the counter value in the array
 // return the entire array
+
+function solve2(arr) {
+	var alphabeth = 'abcdefghijklmnopqrstuvwxyz';
+	return arr.map(
+		(x) =>
+			x
+				.toLowerCase()
+				.split('')
+				.filter((y, i) => i == alphabeth.indexOf(y)).length
+	);
+}
+
+// console.log(solve2(['abode', 'ABc', 'xyzD'])); //[ 4, 3, 1 ]
+
+// declare alphabet string
+// map through array of words from parameter 'arr'
+// check for each word in the array and filter its characters whose idx in a word matches idx in the alphabet string
+// return number of remaining(matching) characters after FILTER for each word, that way their position matches the requirement in the algorithm
