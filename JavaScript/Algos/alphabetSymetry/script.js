@@ -59,3 +59,7 @@ function solve3(arr) {
 		[...x.toLowerCase()].reduce((s, v, i) => s + (v.charCodeAt() == i + 97), 0)
 	);
 }
+
+let name = 'Bojan';
+
+const spellName = () => {};
