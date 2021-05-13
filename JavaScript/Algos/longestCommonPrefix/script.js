@@ -10,7 +10,7 @@
 // Output: ""
 // Explanation: There is no common prefix among the input strings.
 
-const longestCommonPrefix = (strings) => {
+function longestCommonPrefix(strings) {
 	if (!strings || strings.length === 0) return '';
 
 	let sortedArr = strings.sort((a, b) => a.length - b.length);
@@ -24,8 +24,22 @@ const longestCommonPrefix = (strings) => {
 	}
 
 	return shortestStr;
-};
+}
 
 console.log(
-	longestCommonPrefix(['monocle', 'monologue', 'monotony', 'monorail'])
+	longestCommonPrefix2(['monocle', 'monologue', 'monotony', 'monorail'])
 );
+
+function longestCommonPrefix2(strings) {
+	if (!strings.length) return '';
+
+	for (let i = 0; i < strings[0].length; i++) {
+		for (let str of strings) {
+			if (str[i] !== strings[0][i]) {
+				return str.slice(0, i);
+			}
+		}
+	}
+
+	return strings[0];
+}
