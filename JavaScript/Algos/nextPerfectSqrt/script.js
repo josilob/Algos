@@ -9,3 +9,19 @@
 // findNextSquare(121) --> returns 144
 // findNextSquare(625) --> returns 676
 // findNextSquare(114) --> returns -1 since 114 is not a perfect square
+
+function findNextSquare(sq) {
+	if (Math.sqrt(sq) % 1 === 0) {
+		return Math.pow(Math.sqrt(sq) + 1, 2);
+	}
+	return -1;
+}
+
+function findNextSquare2(sq) {
+	return Math.sqrt(sq) % 1 ? -1 : Math.pow(Math.sqrt(sq) + 1, 2);
+}
+
+function findNextSquare3(sq) {
+	var root = Math.sqrt(sq);
+	return root % 1 === 0 ? Math.pow(root + 1, 2) : -1;
+}
