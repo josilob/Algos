@@ -24,3 +24,18 @@ function strangeMath(n, k) {
 	}
 	return numbers.sort().indexOf(k) + 1;
 }
+
+const strangeMath2 = (num, ind) =>
+	Array.from({ length: num + 1 }, (_, i) => String(i))
+		.sort()
+		.indexOf(`${ind}`);
+
+function strangeMath3(n, k) {
+	return (
+		Array(n)
+			.fill()
+			.map((_, i) => i + 1)
+			.sort()
+			.indexOf(k) + 1
+	);
+}
