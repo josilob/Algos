@@ -16,3 +16,11 @@
 // strangeMath(11, 2) === 4
 // strangeMath(15, 5) === 11
 // strangeMath(15, 15) === 7
+
+function strangeMath(n, k) {
+	let numbers = [];
+	for (let i = 1; i <= n; i++) {
+		numbers.push(i);
+	}
+	return numbers.sort().indexOf(k) + 1;
+}
