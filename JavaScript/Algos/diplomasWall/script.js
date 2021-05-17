@@ -35,3 +35,8 @@
 // For h = 17, w = 21 and n = 0, the output should be 0.
 
 // Alex has no diploma, so he doesn't need a desk ;-)
+
+function diplomas(h, w, n) {
+	for (let i = Math.floor(Math.sqrt(h * w * n)); true; i++)
+		if (Math.floor(i / h) * Math.floor(i / w) >= n) return i;
+}
