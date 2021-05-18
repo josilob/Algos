@@ -21,3 +21,5 @@ function decode(string) {
 		.map((value) => (value == 5 ? 0 : value == 0 ? 5 : 10 - value))
 		.join('');
 }
+
+const decode2 = (s) => s.replace(/./g, (c) => '5987604321'[c]);
