@@ -14,3 +14,17 @@
 // The length of the array is always one less than the length of the string.
 // All numbers are valid.
 // There can be duplicate letters and numbers.
+
+function lastSurvivor(letters, coords) {
+	let word = letters.split('');
+	for (let i = 0; i < coords.length; i++) {
+		word.splice(coords[i], 1);
+	}
+	return word.join('');
+}
+
+
+function lastSurvivor2(s, a) {
+	for (let x of a) s = s.slice(0, x) + s.slice(x + 1);
+	return s;
+}
