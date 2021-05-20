@@ -45,3 +45,6 @@ function constructSubmatrix2(matrix, rowsToDelete, columnsToDelete) {
 		.map((row) => row.filter((_, i) => !columnsToDelete.includes(i)))
 		.filter((_, i) => !rowsToDelete.includes(i));
 }
+let str = 'abcdefg';
+str = str.replace(str.slice(1, 3), String.fromCharCode(str.charCodeAt(3) + 1));
+console.log(str);
