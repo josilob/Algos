@@ -8,3 +8,11 @@
 // rgb(255, 255, 300) // returns FFFFFF
 // rgb(0,0,0) // returns 000000
 // rgb(148, 0, 211) // returns 9400D3
+
+const rgb = (r, g, b) => toHex(r) + toHex(g) + toHex(b);
+
+function toHex(numb) {
+	if (numb < 0) return '00';
+	if (numb > 255) return 'FF';
+	return numb.toString(16).padStart(2, '00').toUpperCase();
+}
