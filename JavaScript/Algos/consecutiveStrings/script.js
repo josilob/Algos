@@ -21,3 +21,19 @@
 
 // Note
 // consecutive strings : follow one after another without an interruption
+
+function longestConsec(strarr, k) {
+	let newString = '';
+	let longString = '';
+
+	if (strarr.length === 0 || k > strarr.length || k <= 0) return '';
+
+	for (let i = 0; i < strarr.length; i++) {
+		newString = strarr.slice(i, i + k);
+		if (newString.join('').length > longString.length) {
+			longString = newString.join('');
+		}
+	}
+
+	return longString;
+}
