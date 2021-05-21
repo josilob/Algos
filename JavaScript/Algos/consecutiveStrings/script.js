@@ -34,6 +34,24 @@ function longestConsec(strarr, k) {
 			longString = newString.join('');
 		}
 	}
-
 	return longString;
+}
+
+function longestConsec2(strarr, k) {
+	var longest = '';
+	for (var i = 0; k > 0 && i <= strarr.length - k; i++) {
+		var tempArray = strarr.slice(i, i + k);
+		var tempStr = tempArray.join('');
+		if (tempStr.length > longest.length) {
+			longest = tempStr;
+		}
+	}
+	return longest;
+}
+
+function longestConsec3(strarr, k) {
+	if (strarr.length == 0 || k > strarr.length || k < 1) return '';
+	let lens = strarr.map((_, i, arr) => arr.slice(i, i + k).join('').length),
+		i = lens.indexOf(Math.max(...lens));
+	return strarr.slice(i, i + k).join('');
 }
