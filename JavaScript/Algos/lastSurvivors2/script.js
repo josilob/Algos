@@ -18,3 +18,24 @@
 // There will only be lowercase letters.
 
 
+const nextCharacter = (c) =>
+	String.fromCharCode(97 + ((c.charCodeAt() - 96) % 26));
+
+function lastSurvivors(s) {
+	// func to replace characters
+	function loopReplace(str) {
+		for (let i = 0; i < str.length; i++) {
+			for (var j = i + 1; j < str.length; j++) {
+				if (str[i] == str[j]) {
+					return str.replace(str[i], nextCharacter(str[i])).replace(str[i], '');
+				}
+			}
+		}
+		return false;
+	}
+	let n;
+	while ((n = loopReplace(s))) {
+		s = n;
+	}
+	return s;
+}
