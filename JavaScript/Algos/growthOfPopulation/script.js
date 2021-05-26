@@ -25,9 +25,15 @@
 // Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 
 function nbYear(p0, percent, aug, p) {
-	let pop = p0;
 	for (let i = 1; pop <= p; i++) {
 		pop = pop + (pop * percent) / 100 + aug;
 		if (pop >= p) return i;
 	}
+}
+
+// Recursion within Ternary operator
+function nbYear2(p0, percent, aug, p, years = 0) {
+	return p0 < p
+		? nbYear(p0 + (p0 * percent) / 100 + aug, percent, aug, p, years + 1)
+		: years;
 }
