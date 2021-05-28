@@ -18,3 +18,9 @@
 // .      .
 // .      .       .
 // .      .       .      .      ---> should return 4.5
+
+const tArea = (t) => Math.pow(t.split('\n').length - 3, 2) / 2;
+
+function tArea2(tStr) {
+	return (tStr.split('\n').length - 3) ** 2 / 2;
+}
