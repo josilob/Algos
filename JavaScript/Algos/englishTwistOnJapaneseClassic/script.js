@@ -30,3 +30,18 @@
 // The array {"","bc","","cd"}
 
 // should return An Empty List
+
+function shiritori(words) {
+	let arr = [];
+
+	if (!words[0]) return arr;
+	else arr.push(words[0]);
+
+	for (let i = 1; i < words.length; i++) {
+		const current = words[i];
+		const prev = words[i - 1];
+		if (current && current[0] === prev[prev.length - 1]) arr.push(current);
+		else break;
+	}
+	return arr;
+}
