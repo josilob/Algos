@@ -17,7 +17,6 @@
 // The letters "zz" transform into "a".
 // There will only be lowercase letters.
 
-
 const nextCharacter = (c) =>
 	String.fromCharCode(97 + ((c.charCodeAt() - 96) % 26));
 
@@ -38,4 +37,31 @@ function lastSurvivors(s) {
 		s = n;
 	}
 	return s;
+}
+
+function lastSurvivors2(str) {
+	str = str.split('').sort().join('');
+	let madeChange = false;
+	for (let i = 0; i < str.length - 1; i++) {
+		if (str[i] === str[i + 1]) {
+			if (str[i] === 'z') {
+				str = str.replace(
+					str[i] + str[i],
+					String.fromCharCode(str.charCodeAt(i) - 25)
+				);
+			} else {
+				str = str.replace(
+					str[i] + str[i],
+					String.fromCharCode(str.charCodeAt(i) + 1)
+				);
+			}
+			madeChange = true;
+			break;
+		}
+	}
+	if (madeChange) {
+		return lastSurvivors(str);
+	} else {
+		return str;
+	}
 }
