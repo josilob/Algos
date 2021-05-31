@@ -24,3 +24,5 @@ const tArea = (t) => Math.pow(t.split('\n').length - 3, 2) / 2;
 function tArea2(tStr) {
 	return (tStr.split('\n').length - 3) ** 2 / 2;
 }
+
+tArea('\n.\n. .\n. . .\n'); // 2
