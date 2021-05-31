@@ -5,3 +5,16 @@
 // Examples:
 // toWeirdCase( "String" );//=> returns "StRiNg"
 // toWeirdCase( "Weird string case" );//=> returns "WeIrD StRiNg CaSe"
+
+function toWeirdCase(string) {
+	return string
+		.split(' ')
+		.map((str) => {
+			let newStr = '';
+			for (let i = 0; i < str.length; i++) {
+				newStr += i % 2 === 0 || i === 0 ? str[i].toUpperCase() : str[i];
+			}
+			return newStr;
+		})
+		.join(' ');
+}
