@@ -17,3 +17,10 @@
 // candies ([]) // return -1
 
 // candies ([1,6]) // return 5
+
+function candies(kids) {
+	if (kids.length <= 1) return -1;
+	const maxCandies = Math.max(...kids);
+
+	return kids.reduce((total, kid) => total + maxCandies - kid, 0);
+}
