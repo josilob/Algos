@@ -12,3 +12,23 @@
 
 // You are NOT allowed to use any temporary arrays or objects. You are also not allowed to use any Array.prototype or Object.prototype methods.
 
+function removeZeros(array) {
+	return [
+		...array['filter']((v) => v !== 0 && v !== '0'),
+		...array['filter']((v) => v === 0 || v === '0')
+	];
+}
+
+function removeZeros2(array) {
+	const head = [];
+	const tail = [];
+	for (const e of array) {
+		if (e === 0 || e === '0') {
+			// replaces push method
+			tail[tail.length] = e;
+		} else {
+			head[head.length] = e;
+		}
+	}
+	return [...head, ...tail];
+}
