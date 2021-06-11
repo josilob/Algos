@@ -4,4 +4,14 @@
 
 // Example: For n=10 and firstNumber = 2, the output should be circleOfNumbers(n,firstNumber) = 7
 
+// 0 1 2 3
+// 9     4
+// 8 7 6 5
 
+function circleOfNumbers(n, firstNum) {
+	return (n / 2 + firstNum) % n;
+}
+
+// console.log(circleOfNumbers(10, 2)); // 7
+// console.log(circleOfNumbers(10, 5)); // 0
+// console.log(circleOfNumbers(10, 9)); // 4
