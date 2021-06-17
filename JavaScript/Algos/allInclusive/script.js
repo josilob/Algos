@@ -27,3 +27,7 @@ function containAllRots(str, arr) {
 	}
 	return true;
 }
+
+function containAllRots2(s, arr) {
+	return s.split('').every((_, i) => arr.includes(s.slice(i) + s.slice(0, i)));
+}
