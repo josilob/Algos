@@ -9,7 +9,8 @@
 // For more information: Binding
 
 var name = 'The Window';
-
+// use .bind() to return object's local scope instead of global variable 'name'
+// The bind() method allows an object to borrow a method from another object without making a copy of that method.
 var alpha = {
 	name: 'My Alpha',
 	getNameFunc: function () {
