@@ -31,3 +31,12 @@ function diagonalDifference(arr) {
 
 	return Math.abs(firstDiagonal - secondDiagonal);
 }
+
+console.log(
+	diagonalDifference([
+		[1, 2, 3, 4],
+		[4, 3, 2, 1],
+		[1, 1, 1, 1],
+		[2, 3, 2, 3]
+	])
+);
