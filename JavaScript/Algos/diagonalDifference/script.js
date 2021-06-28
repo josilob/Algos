@@ -25,7 +25,7 @@ function diagonalDifference(arr) {
 	);
 
 	const secondDiagonal = arr.reduce(
-		(sum, el, idx, arr) => sum + arr[idx][el.length - idx - 1],
+		(sum, el, idx, arr) => sum + arr[idx][el.length - 1 - idx],
 		0
 	);
 
