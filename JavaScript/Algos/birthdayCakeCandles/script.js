@@ -6,5 +6,6 @@
 // The maximum height candles are 4 units high. There are 2 of them, so return 2.
 
 function birthdayCakeCandles(candles) {
-	return candles.filter((candle) => candle === Math.max(...candles)).length;
+	const maxNum = Math.max(...candles);
+	return candles.filter((candle) => candle === maxNum).length;
 }
