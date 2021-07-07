@@ -7,10 +7,12 @@
 // [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
 
 function sortArray(array) {
-	const odds = array.filter((num) => num % 2 !== 0).sort((a, b) => a - b);
-	console.log(odds);
+	// sorted in decrementing order to enable pop() over shift() for the better time complexity
+	const odds = array.filter((num) => num % 2 !== 0).sort((a, b) => b - a);
+
 	const sortedOdds = array.map((num) => {
-		if (num % 2 !== 0) return odds.shift();
+		// pop() instead of shift()
+		if (num % 2 !== 0) return odds.pop();
 		return num;
 	});
 	return sortedOdds;
