@@ -16,4 +16,3 @@ function firstNonConsecutive(arr) {
 	}
 	return null;
 }
-
