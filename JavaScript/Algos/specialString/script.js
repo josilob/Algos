@@ -3,14 +3,12 @@
 
 function substrCount(n, s) {
 	s = s.split('');
-	//
 	const incr = (i, num = 1) => {
 		if (s[i] == s[i + num]) {
 			n += 1;
 			return incr(i, num + 1);
 		}
 	};
-
 	const palindrome = (i, num = 1) => {
 		const letters = new Set(s.slice(i - num, i + num + 1));
 		if (
@@ -24,7 +22,34 @@ function substrCount(n, s) {
 			return palindrome(i, num + 1);
 		}
 	};
+	for (let i = 0; i < s.length; i++) {
+		incr(i);
+		palindrome(i);
+	}
+	return n;
+}
 
+function substrCount(n, s) {
+	s = s.split('');
+	const incr = (i, num = 1) => {
+		if (s[i] == s[i + num]) {
+			n += 1;
+			return incr(i, num + 1);
+		}
+	};
+	const palindrome = (i, num = 1) => {
+		const letters = new Set(s.slice(i - num, i + num + 1));
+		if (
+			letters.size == 2 &&
+			i - num >= 0 &&
+			i + num <= s.length &&
+			s[i + num] == s[i - 1] &&
+			s[i - num] == s[i + 1]
+		) {
+			n += 1;
+			return palindrome(i, num + 1);
+		}
+	};
 	for (let i = 0; i < s.length; i++) {
 		incr(i);
 		palindrome(i);
