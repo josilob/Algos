@@ -14,3 +14,11 @@ function breakingRecords(scores) {
 	});
 	return recordsCount;
 }
+
+function average(table) {
+	if (!table) return 0;
+	const sum = table.reduce((sum, num) => sum + num, 0);
+	return sum / table.length;
+}
+
+console.log(average([1, 2, 4, 5, 6, 7]));
