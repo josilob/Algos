@@ -19,3 +19,20 @@ function uncollapse(digits) {
 		/(zero)|(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)|(ten)/;
 	return digits.split(regNums).filter(Boolean).join(' ');
 }
+
+function uncollapse2(digits) {
+	const digitsMap = [
+		'zero',
+		'one',
+		'two',
+		'three',
+		'four',
+		'five',
+		'six',
+		'seven',
+		'eight',
+		'nine'
+	];
+
+	return digits.match(new RegExp(digitsMap.join('|'), 'g')).join(' ');
+}
