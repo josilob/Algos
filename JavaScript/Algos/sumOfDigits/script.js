@@ -13,3 +13,7 @@ function digital_root(n) {
 		? n
 		: digital_root(('' + n).split('').reduce((acc, el) => acc + +el, 0));
 }
+
+function digital_root2(n) {
+	return ((n - 1) % 9) + 1;
+}
