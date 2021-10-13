@@ -12,3 +12,13 @@
 
 // Error checking for text strings or other invalid inputs is not required, only valid positive non-zero integers will be passed into the function.
 
+function narcissistic(value) {
+	return (
+		('' + value).split('').reduce(function (p, c) {
+			return p + Math.pow(c, ('' + value).length);
+		}, 0) == value
+	);
+}
+
+console.log(narcissistic(153)); // => true
+console.log(narcissistic(155)); // => false
