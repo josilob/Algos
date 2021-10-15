@@ -28,3 +28,31 @@
 // ex1. FURYYYFIREYYFIRE = "I am furious. You and you are fired!"
 // ex2. FIREYYFURYYFURYYFURRYFIRE = "You are fired! I am really furious. You are fired!"
 // ex3. FYRYFIRUFIRUFURE = "Fake tweet."
+
+function fireAndFury(s) {
+	if (!/FIRE|FURY/.test(s) || /[^EFIRUY]/.test(s)) return 'Fake tweet.';
+	let result = s.match(/FIRE|FURY/g).join``.match(/(FIRE)+|(FURY)+/g);
+	return result.map((s) =>
+		/FIRE/.test(s)
+			? `You ${'and you '.repeat(s.length / 4 - 1)}are fired!`
+			: `I am ${'really '.repeat(s.length / 4 - 1)}furious.`
+	).join` `;
+}
+
+const fireAndFury2 = (tweet) => {
+	let matches = tweet.match(/(FURY|FIRE)/g);
+
+	if (/[^EFIRUY]/.test(tweet) || !matches) return 'Fake tweet.';
+
+	return matches
+		.join('')
+		.match(/(FURY|FIRE)\1*/g)
+		.map((match) => {
+			let terms = match.length / 4 - 1;
+
+			return match[1] === 'I'
+				? 'You ' + 'and you '.repeat(terms) + 'are fired!'
+				: 'I am ' + 'really '.repeat(terms) + 'furious.';
+		})
+		.join(' ');
+};
