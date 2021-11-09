@@ -60,7 +60,20 @@ function topThreeWords(text) {
 	}
 }
 
-const topThreeWords2 = (text) => {
+function topThreeWords2(text) {
+	let words = {};
+	text.toLowerCase().replace(/([A-Za-z][A-Za-z']*)/g, (match) => {
+		let c = words[match] || 0;
+		words[match] = ++c;
+	});
+	return Object.keys(words)
+		.sort(function (a, b) {
+			return words[b] - words[a];
+		})
+		.slice(0, 3);
+}
+
+const topThreeWords3 = (text) => {
 	let dict = new Map();
 	text.replace(/[A-z']+(?=[ ]+|$)/g, (match) => {
 		let word = match.toLowerCase();
