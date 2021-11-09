@@ -25,7 +25,6 @@
 // Avoid creating an array whose memory footprint is roughly as big as the input text.
 // Avoid sorting the entire array of unique words.
 
-
 function topThreeWords(text) {
 	let regex = '.*[a-zA-Z].*';
 	if (text.match(regex)) {
@@ -60,3 +59,16 @@ function topThreeWords(text) {
 		return [];
 	}
 }
+
+const topThreeWords2 = (text) => {
+	let dict = new Map();
+	text.replace(/[A-z']+(?=[ ]+|$)/g, (match) => {
+		let word = match.toLowerCase();
+		dict.set(word, dict.has(word) ? dict.get(word) + 1 : 1);
+	});
+	dict.delete("'");
+	return [...dict]
+		.sort((a, b) => b[1] - a[1])
+		.map((a) => a[0])
+		.slice(0, 3);
+};
