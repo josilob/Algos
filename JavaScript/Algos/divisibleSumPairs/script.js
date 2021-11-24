@@ -24,3 +24,16 @@
 // 1<=k<=100
 // 1<=ar[i]<=100
 
+function divisibleSumPairs(n, k, ar) {
+	let count = 0;
+	for (let i = 0; i < n; i++) {
+		ar.slice(i + 1, n).filter((item) => {
+			if ((item + ar[i]) % k === 0) {
+				count++;
+			}
+		});
+	}
+	return count;
+}
+
+console.log(divisibleSumPairs(6, 3, [1, 3, 2, 6, 1, 2])); // => 5
