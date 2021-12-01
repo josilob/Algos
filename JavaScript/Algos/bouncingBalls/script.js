@@ -21,3 +21,13 @@
 // - h = 3, bounce = 1, window = 1.5, result is -1
 
 // (Condition 2) not fulfilled).
+
+function bouncingBall(h, bounce, window, i = 0) {
+	while (h > window && bounce > 0 && bounce < 1) {
+		return h * bounce > window
+			? bouncingBall(h * bounce, bounce, window, (i += 2))
+			: (i += 1);
+	}
+
+	return -1;
+}
