@@ -19,3 +19,11 @@ var getNum = function (n) {
 	);
 	return result;
 };
+
+// regex, filter & reduce
+var getNum2 = function (n) {
+	return (n + '')
+		.split('')
+		.filter((x) => /[0986]/.test(x))
+		.reduce((a, b) => (b == '8' ? a + 2 : a + 1), 0);
+};
