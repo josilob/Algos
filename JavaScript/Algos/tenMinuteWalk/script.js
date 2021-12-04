@@ -2,3 +2,13 @@
 
 // Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
 
+function isValidWalk(walk) {
+	if (walk.length !== 10) return false;
+
+	const steps = (dir) => walk.filter((el) => el === dir).length;
+
+	if (steps('n') !== steps('s')) return false;
+	if (steps('e') !== steps('w')) return false;
+
+	return true;
+}
