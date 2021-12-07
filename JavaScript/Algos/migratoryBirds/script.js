@@ -24,12 +24,7 @@ function migratoryBirds(arr) {
 		maxCount = 0,
 		output = [];
 	for (let i = 0; i < arr.length; i++) {
-		if (!map[arr[i]]) {
-			map[arr[i]] = 1;
-		} else {
-			map[arr[i]] += 1;
-		}
-
+		map[arr[i]] = map[arr[i]] + 1 || 1;
 		// getting max count
 		if (map[arr[i]] > maxCount) {
 			maxCount = map[arr[i]];
