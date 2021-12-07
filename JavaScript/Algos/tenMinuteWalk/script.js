@@ -14,11 +14,12 @@ function isValidWalk(walk) {
 }
 
 function isValidWalk2(walk) {
-	var dx = 0;
-	var dy = 0;
-	var dt = walk.length;
+	if (walk.length !== 10) return false;
 
-	for (var i = 0; i < walk.length; i++) {
+	let dx = 0;
+	let dy = 0;
+
+	for (let i = 0; i < walk.length; i++) {
 		switch (walk[i]) {
 			case 'n':
 				dy--;
@@ -35,5 +36,5 @@ function isValidWalk2(walk) {
 		}
 	}
 
-	return dt === 10 && dx === 0 && dy === 0;
+	return dx === 0 && dy === 0;
 }
