@@ -22,3 +22,28 @@
 
 // josephus([1,2,3,4,5,6,7],3)==[3,6,2,7,5,1,4]
 // For more info, browse the Josephus Permutation page on wikipedia; related kata: Josephus Survivor.
+
+function josephus(items, k) {
+	let n = 1;
+	const solution = [];
+	while (items.length > 0) {
+		for (let i = 0; i < items.length; i++) {
+			if (n % k == 0) {
+				solution.push(items.splice(i, 1)[0]);
+				i--;
+			}
+			n++;
+		}
+	}
+	return solution;
+}
+
+function josephus2(items, k) {
+	var result = [],
+		index = 0;
+	while (items.length > 0) {
+		index = (index + k - 1) % items.length;
+		result = result.concat(items.splice(index, 1));
+	}
+	return result;
+}
