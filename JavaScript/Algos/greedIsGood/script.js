@@ -125,3 +125,14 @@ function score3(dice) {
 	r += five * 50;
 	return r;
 }
+
+const score4 = (dice) =>
+	(
+		dice
+			.sort()
+			.join(``)
+			.match(/(\d)\1{2}|[15]/g) || []
+	).reduce(
+		(pre, val) => pre + 100 * ({ 111: 10, 1: 1, 5: 0.5 }[val] || val[0]),
+		0
+	);
